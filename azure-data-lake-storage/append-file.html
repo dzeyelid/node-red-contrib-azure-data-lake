@@ -1,0 +1,82 @@
+<script type="text/javascript">
+    RED.nodes.registerType('append-file',{
+        category: 'cloud',
+        color: '#00abec',
+        defaults: {
+            name: {value:""}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "data-lake-storage.svg",
+        label: function() {
+            return this.name||"Append content to the file on Data Lake";
+        },
+        credentials: {
+            account: {
+                type: "text",
+                required: true,
+            },
+            key: {
+                type: "password",
+                required: true,
+            },
+            fileSystemName: {
+                type: "text",
+                required: true,
+            },
+        },
+    });
+</script>
+
+<script type="text/html" data-template-name="append-file">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-account"><i class="icon-tag"></i> Storage Account Name</label>
+        <input type="text" id="node-input-account">
+    </div>
+    <div class="form-row">
+        <label for="node-input-key"><i class="icon-tag"></i> Storage Account Key</label>
+        <input type="password" id="node-input-key">
+    </div>
+    <div class="form-row">
+        <label for="node-input-fileSystemName"><i class="icon-tag"></i> File system (Container name)</label>
+        <input type="text" id="node-input-fileSystemName">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="append-file">
+    <p>Append content to the specified file on Azure Data Lake Storage</p>
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>payload<span class="property-type">object</span></dt>
+        <dd>
+            Specify which file to append the content and the content.
+            <ul>
+                <li><code>filePath</code> - a file path to be appended the content</li>
+                <li><code>content</code> - a content to append to the file</li>
+            </ul>
+        </dd>
+    </dl>
+    <h3>Outputs</h3>
+    <dl class="message-properties">
+        <dt>payload<span class="property-type">object</span></dt>
+        <dd>
+            After appending to the file, some information is output.
+            <ul>
+                <li><code>filePath</code> - the specified file path</li>
+                <li><code>appendedContent</code> - The appended content</li>
+            </ul>
+        </dd>
+    </dl>
+    <h3>Details</h3>
+    <p>This node can append content to a tail of a specified file on Azure Data Lake Gen2.</p>
+    <p>Fill the required fields below on properties to access Azure Storage Account that enabled Azure Data Lake feature.</p>
+    <ul>
+        <li><code>Storage Account Name</code> - Storage account name that can be found in Access keys blade in Azure Portal</li>
+        <li><code>Storage Account Key</code> - a key of the Storage account, that can be found in Access keys blade in Azure Portal</li>
+        <li><code>File system (Container name)</code> - the name of a file system (container name) that include the file to be appended</li>
+    </ul>
+</script>

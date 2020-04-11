@@ -1,0 +1,22 @@
+{
+  "name": "node-red-contrib-azure-data-lake-storage",
+  "version": "0.1.0",
+  "description": "A Node-RED node library to connect to your Azure Data Lake Storage Gen2",
+  "keywords": [
+    "node-red",
+    "Azure",
+    "Azure Storage",
+    "Azure Data Lake Storage"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dzeyelid/node-red-contrib-azure-data-lake-storage.git"
+  },
+  "author": "Kazumi OHIRA",
+  "license": "MIT License",
+  "node-red": {
+    "nodes": {
+      "append-file": "azure-data-lake-storage/append-file.js"
+    }
+  }
+}
