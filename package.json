@@ -12,8 +12,8 @@
     "type": "git",
     "url": "git+https://github.com/dzeyelid/node-red-contrib-azure-data-lake-storage.git"
   },
-  "author": "Kazumi OHIRA",
-  "license": "MIT License",
+  "author": "Kazumi OHIRA <dzeyelid@gmail.com>",
+  "license": "MIT",
   "node-red": {
     "nodes": {
       "append-file": "azure-data-lake-storage/append-file.js"
