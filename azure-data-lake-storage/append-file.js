@@ -59,9 +59,18 @@ module.exports = function(RED) {
     }
     RED.nodes.registerType("append-file", AzureDataLakeAppendFileNode, {
         credentials: {
-            account: {type: "text"},
-            key: {type: "password"},
-            fileSystemName: {type: "text"},
+            account: {
+                type: "text",
+                required: true,
+            },
+            key: {
+                type: "password",
+                required: true,
+            },
+            fileSystemName: {
+                type: "text",
+                required: true,
+            },
         }
     });
 }
